@@ -7,6 +7,9 @@ from datetime import datetime, timedelta, timezone
 load_dotenv(override=True)
 api_key = os.getenv('WEATHER_API_KEY')
 
+def api_display():
+    return api_key
+
 def default_values(all_values):
     all_values[0].value = None
     all_values[1].value = "City_Name"
