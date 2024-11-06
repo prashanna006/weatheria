@@ -406,7 +406,7 @@ def main(page: Page):
                 
                 weather_info_fields,
                 
-                Row([Text(api_display)], alignment=MainAxisAlignment.CENTER),
+                Row([Text(api_display())], alignment=MainAxisAlignment.CENTER),
             ]
         ),
     )
