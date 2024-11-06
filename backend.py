@@ -5,10 +5,10 @@ import os
 from datetime import datetime, timedelta, timezone
 
 load_dotenv(override=True)
-api_key = os.getenv("'WEATHER_API_KEY'")
+api_key = os.getenv('WEATHER_API_KEY')
+response = requests.get(f"https://api.weather.com/v1/forecast?apiKey={api_key}&location=Miami")
+print(response.json())  # Check if this works
 
-# all_values = [city_field, city_name, current_temp, max_temp, min_temp, weather_desc, feels_like, sunrise, sunset,
-#              wind_info, humidity_info, pressure_info, visibility_info, sea_lvl_info, ground_lvl_info, error_text]
 def default_values(all_values):
     all_values[0].value = None
     all_values[1].value = "City_Name"
