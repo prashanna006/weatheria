@@ -426,4 +426,4 @@ def main(page: Page):
     
     page.add(body)
 
-app(target=main)
+app(target=main, name="Weatheria")
