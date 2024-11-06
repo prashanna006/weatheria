@@ -1,5 +1,5 @@
 from flet import *
-from backend import get_weather
+from backend import get_weather, api_display
 
 # App Dimensions
 width = 400
@@ -406,7 +406,7 @@ def main(page: Page):
                 
                 weather_info_fields,
                 
-                Row([error_box], alignment=MainAxisAlignment.CENTER),
+                Row([Text(api_display)], alignment=MainAxisAlignment.CENTER),
             ]
         ),
     )
