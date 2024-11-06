@@ -223,7 +223,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    humidity_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    humidity_info = Text(f"-- %", text_align=TextAlign.LEFT, weight='w600', size=20)
     humidity_info_box = Container(
         humidity_info,
         padding=padding.only(top=height / 30, left=25),
@@ -250,7 +250,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    pressure_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    pressure_info = Text(f"-- hPa", text_align=TextAlign.LEFT, weight='w600', size=20)
     pressure_info_box = Container(
         pressure_info,
         padding=padding.only(top=height / 30, left=25),
@@ -277,7 +277,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    visibility_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    visibility_info = Text(f"-- m", text_align=TextAlign.LEFT, weight='w600', size=20)
     visibility_info_box = Container(
         visibility_info,
         padding=padding.only(top=height / 30, left=25),
@@ -304,7 +304,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    sea_lvl_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    sea_lvl_info = Text(f"-- m", text_align=TextAlign.LEFT, weight='w600', size=20)
     sea_lvl_info_box = Container(
         sea_lvl_info,
         padding=padding.only(top=height / 30, left=25),
@@ -331,7 +331,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    ground_lvl_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    ground_lvl_info = Text(f"-- m", text_align=TextAlign.LEFT, weight='w600', size=20)
     ground_lvl_info_box = Container(
         ground_lvl_info,
         padding=padding.only(top=height / 30, left=25),
