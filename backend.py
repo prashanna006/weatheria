@@ -4,15 +4,8 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime, timedelta, timezone
 
+load_dotenv()
 api_key = os.getenv('WEATHER_API_KEY')
-
-def api_display():
-    return api_key
-
-
-def api_display():
-    return api_key
-
 
 def default_values(all_values):
     all_values[0].value = None

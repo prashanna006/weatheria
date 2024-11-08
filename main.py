@@ -1,5 +1,5 @@
 from flet import *
-from backend import get_weather, api_display
+from backend import get_weather
 
 # App Dimensions
 width = 400
