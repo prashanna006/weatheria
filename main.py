@@ -402,7 +402,7 @@ def main(page: Page):
                 
                 weather_info_fields,
                 
-                Row([Text(api_display), Text("12345"), Text(x)], alignment=MainAxisAlignment.CENTER),
+                Row([error_box], alignment=MainAxisAlignment.CENTER),
             ]
         ),
     )
