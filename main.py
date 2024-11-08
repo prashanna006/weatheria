@@ -1,5 +1,5 @@
 from flet import *
-from backend import get_weather
+from backend import get_weather, api_display
 
 # App Dimensions
 width = 400
@@ -18,17 +18,12 @@ sunset_gradient = ['#000033', '#001A66', '#001F54']
 
 
 def main(page: Page):
-    def on_resize(event):
-        width = page.window_width
-        height = page.window_height
-        print(width, height)
     
     # Page Settings
     page.window_width = 440
     page.window_height = 860
     page.title = "Weatheria"
     page.scroll = "auto"
-    page.on_resize = on_resize
     page.window_always_on_top = True
     
     # Title Section
@@ -59,6 +54,15 @@ def main(page: Page):
         label="City Name", hint_text="Seattle", text_align=TextAlign.LEFT, width=width / 1.5,
         border_color=search_bar_color, border_width=2.5, border_radius=10
     )
+    
+    search_button_icon = IconButton(
+        icon=icons.SEARCH, icon_color=search_icon_color, bgcolor=transparent_black, on_click= lambda e: get_weather(all_values)
+    )
+    search_button = Container(
+        content=search_button_icon,
+        padding=padding.only(top=10)
+    )
+    
 
     section_divider = Divider(
         color=divider_color,
@@ -223,7 +227,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    humidity_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    humidity_info = Text(f"-- %", text_align=TextAlign.LEFT, weight='w600', size=20)
     humidity_info_box = Container(
         humidity_info,
         padding=padding.only(top=height / 30, left=25),
@@ -250,7 +254,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    pressure_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    pressure_info = Text(f"-- hPa", text_align=TextAlign.LEFT, weight='w600', size=20)
     pressure_info_box = Container(
         pressure_info,
         padding=padding.only(top=height / 30, left=25),
@@ -277,7 +281,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    visibility_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    visibility_info = Text(f"-- m", text_align=TextAlign.LEFT, weight='w600', size=20)
     visibility_info_box = Container(
         visibility_info,
         padding=padding.only(top=height / 30, left=25),
@@ -304,7 +308,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    sea_lvl_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    sea_lvl_info = Text(f"-- m", text_align=TextAlign.LEFT, weight='w600', size=20)
     sea_lvl_info_box = Container(
         sea_lvl_info,
         padding=padding.only(top=height / 30, left=25),
@@ -331,7 +335,7 @@ def main(page: Page):
     )
 
     # Create the Text object separately to easily update it
-    ground_lvl_info = Text(f"-- km/hr", text_align=TextAlign.LEFT, weight='w600', size=20)
+    ground_lvl_info = Text(f"-- m", text_align=TextAlign.LEFT, weight='w600', size=20)
     ground_lvl_info_box = Container(
         ground_lvl_info,
         padding=padding.only(top=height / 30, left=25),
@@ -367,14 +371,7 @@ def main(page: Page):
         padding=padding.only(top=10)
     )
 
-    search_button_icon = IconButton(
-        icon=icons.SEARCH, icon_color=search_icon_color, bgcolor=transparent_black, on_click= lambda e: get_weather(all_values)
-    )
-    search_button = Container(
-        content=search_button_icon,
-        padding=padding.only(top=10)
-    )
-    
+
     # Weather App
     weather_page = Container(
         content=Column(

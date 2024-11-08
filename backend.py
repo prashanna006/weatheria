@@ -7,6 +7,9 @@ from datetime import datetime, timedelta, timezone
 load_dotenv(override=True)
 api_key = os.getenv("WEATHER_API_KEY")
 
+def api_display():
+    return api_key
+
 # all_values = [city_field, city_name, current_temp, max_temp, min_temp, weather_desc, feels_like, sunrise, sunset,
 #              wind_info, humidity_info, pressure_info, visibility_info, sea_lvl_info, ground_lvl_info, error_text]
 def default_values(all_values):
