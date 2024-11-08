@@ -18,7 +18,6 @@ sunset_gradient = ['#000033', '#001A66', '#001F54']
 
 
 def main(page: Page):
-    
     # Page Settings
     page.window_width = 440
     page.window_height = 860
@@ -403,7 +402,7 @@ def main(page: Page):
                 
                 weather_info_fields,
                 
-                Row([error_box], alignment=MainAxisAlignment.CENTER),
+                Row([Text(api_display), Text("12345"), Text(x)], alignment=MainAxisAlignment.CENTER),
             ]
         ),
     )
