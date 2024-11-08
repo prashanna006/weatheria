@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime, timedelta, timezone
 
-loadenv()
+load_dotenv()
 api_key = os.getenv('WEATHER_API_KEY')
 
 def default_values(all_values):
